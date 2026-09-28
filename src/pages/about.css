@@ -1,0 +1,648 @@
+/* ============================================================
+   ABOUT.CSS - Bento Grid Layout
+   Modern mosaic grid with glassmorphism cards
+   ============================================================ */
+
+.about-page {
+  padding-top: 90px;
+  padding-bottom: 100px;
+}
+
+/* ── Section header ── */
+.about-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+/* ── BENTO GRID ── */
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: auto;
+  gap: 20px;
+}
+
+/* ── Shared card base ── */
+.bento-card {
+  padding: 28px;
+  position: relative;
+  overflow: hidden;
+  animation: bento-fade-in 0.6s ease both;
+}
+
+.bento-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(79, 142, 247, 0.4),
+    transparent
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.bento-card:hover::before {
+  opacity: 1;
+}
+
+/* Card label (small uppercase heading) */
+.bento-card-label {
+  font-size: 0.7rem;
+  font-family: var(--font-mono);
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 18px;
+}
+
+/* Staggered animation delay */
+.bento-card:nth-child(1) { animation-delay: 0.05s; }
+.bento-card:nth-child(2) { animation-delay: 0.12s; }
+.bento-card:nth-child(3) { animation-delay: 0.19s; }
+.bento-card:nth-child(4) { animation-delay: 0.26s; }
+.bento-card:nth-child(5) { animation-delay: 0.33s; }
+.bento-card:nth-child(6) { animation-delay: 0.40s; }
+.bento-card:nth-child(7) { animation-delay: 0.47s; }
+
+@keyframes bento-fade-in {
+  from { opacity: 0; transform: translateY(24px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+
+/* ═══════════════════════════════════════════════════════
+   CARD 1 — BIO (spans 2 columns)
+   ═══════════════════════════════════════════════════════ */
+.bento-bio {
+  grid-column: span 2;
+  display: flex;
+  gap: 32px;
+  align-items: center;
+  padding: 32px;
+}
+
+.bio-photo-wrap {
+  position: relative;
+  flex-shrink: 0;
+  width: 280px;
+  height: 280px;
+}
+
+.bio-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 20px;
+  border: 2px solid var(--border-accent);
+  position: relative;
+  z-index: 1;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.bento-bio:hover .bio-photo {
+  transform: scale(1.03);
+  box-shadow: var(--glow-blue);
+}
+
+.bio-photo-glow {
+  position: absolute;
+  inset: -8px;
+  border-radius: 26px;
+  background: var(--gradient-main);
+  opacity: 0.12;
+  filter: blur(20px);
+  z-index: 0;
+  transition: opacity 0.4s ease;
+}
+
+.bento-bio:hover .bio-photo-glow {
+  opacity: 0.25;
+}
+
+.bio-text {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.bio-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  color: #a6e3a1;
+  background: rgba(166, 227, 161, 0.08);
+  border: 1px solid rgba(166, 227, 161, 0.2);
+  border-radius: 50px;
+  padding: 5px 14px;
+  width: fit-content;
+}
+
+.bio-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #a6e3a1;
+  animation: pulse-dot 2s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+.bio-name {
+  font-size: 1.8rem;
+  font-weight: 800;
+  background: var(--gradient-main);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.15;
+}
+
+.bio-role {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+}
+
+.bio-desc {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  max-width: 500px;
+}
+
+.bio-links {
+  display: flex;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.bio-link {
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.bio-link:hover {
+  color: var(--accent-blue);
+  border-color: var(--border-accent);
+  background: rgba(79, 142, 247, 0.1);
+  transform: translateY(-2px);
+  box-shadow: var(--glow-blue);
+}
+
+
+/* ═══════════════════════════════════════════════════════
+   CARD 2 — STATS
+   ═══════════════════════════════════════════════════════ */
+.bento-stats {
+  grid-column: span 1;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  padding: 18px 10px;
+  transition: var(--transition);
+}
+
+.stat-item:hover {
+  border-color: var(--border-accent);
+  background: rgba(79, 142, 247, 0.06);
+}
+
+.stat-value {
+  font-size: 1.6rem;
+  font-weight: 800;
+  background: var(--gradient-main);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.stat-label {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-family: var(--font-mono);
+  text-align: center;
+}
+
+
+/* ═══════════════════════════════════════════════════════
+   CARD 3 — SKILLS / TECH STACK (spans 2 cols)
+   ═══════════════════════════════════════════════════════ */
+.bento-skills {
+  grid-column: span 2;
+}
+
+.skill-clusters {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.skill-cluster {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.cluster-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  flex-shrink: 0;
+  min-width: 72px;
+  text-align: center;
+  margin-top: 3px;
+}
+
+.cluster-label--blue   { background: rgba(79, 142, 247, 0.15); color: var(--accent-blue); }
+.cluster-label--purple { background: rgba(139, 92, 246, 0.15); color: var(--accent-purple); }
+.cluster-label--cyan   { background: rgba(34, 211, 238, 0.15); color: var(--accent-cyan); }
+.cluster-label--green  { background: rgba(166, 227, 161, 0.15); color: #a6e3a1; }
+
+.cluster-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.cluster-pill {
+  padding: 5px 14px;
+  border-radius: 50px;
+  font-size: 0.78rem;
+  font-family: var(--font-mono);
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  transition: var(--transition);
+  cursor: default;
+}
+
+.cluster-pill:hover {
+  border-color: var(--border-accent);
+  color: var(--accent-blue);
+  background: rgba(79, 142, 247, 0.08);
+}
+
+
+/* ═══════════════════════════════════════════════════════
+   CARD 4 — INTERESTS
+   ═══════════════════════════════════════════════════════ */
+.bento-interests {
+  grid-column: span 1;
+}
+
+.interest-items {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.interest-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid transparent;
+  transition: var(--transition);
+  cursor: default;
+}
+
+.interest-item:hover {
+  background: rgba(79, 142, 247, 0.06);
+  border-color: var(--border-accent);
+}
+
+.interest-icon {
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background: var(--gradient-subtle);
+  color: var(--accent-blue);
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+
+.interest-item span {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+
+/* ═══════════════════════════════════════════════════════
+   CARD 5 — EDUCATION (spans 2 cols)
+   ═══════════════════════════════════════════════════════ */
+.bento-education {
+  grid-column: span 2;
+}
+
+.edu-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: relative;
+  padding-left: 24px;
+}
+
+.edu-timeline::before {
+  content: '';
+  position: absolute;
+  top: 6px;
+  bottom: 6px;
+  left: 7px;
+  width: 2px;
+  background: linear-gradient(
+    180deg,
+    var(--accent-blue),
+    var(--accent-purple),
+    rgba(139, 92, 246, 0.15)
+  );
+  border-radius: 2px;
+}
+
+.edu-item {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  position: relative;
+  padding: 14px 0;
+}
+
+.edu-marker {
+  position: absolute;
+  left: -20px;
+  top: 20px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--bg-secondary);
+  border: 2px solid var(--accent-purple);
+  z-index: 1;
+  transition: var(--transition);
+}
+
+.edu-item--active .edu-marker {
+  background: var(--accent-blue);
+  border-color: var(--accent-blue);
+  box-shadow: 0 0 12px rgba(79, 142, 247, 0.5);
+}
+
+.edu-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.edu-year {
+  font-size: 0.72rem;
+  font-family: var(--font-mono);
+  color: var(--accent-blue);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.edu-content h4 {
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.edu-content p {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+
+/* ═══════════════════════════════════════════════════════
+   CARD 6 — QUOTE
+   ═══════════════════════════════════════════════════════ */
+.bento-quote {
+  grid-column: span 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 36px 28px;
+  background: linear-gradient(
+    135deg,
+    rgba(79, 142, 247, 0.06),
+    rgba(139, 92, 246, 0.06)
+  );
+}
+
+.quote-icon {
+  font-size: 1.4rem;
+  color: var(--accent-purple);
+  margin-bottom: 14px;
+  opacity: 0.6;
+}
+
+.quote-text {
+  font-size: 1rem;
+  color: var(--text-primary);
+  line-height: 1.65;
+  font-weight: 500;
+  font-style: italic;
+  max-width: 280px;
+}
+
+.quote-author {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  margin-top: 14px;
+}
+
+
+/* ═══════════════════════════════════════════════════════
+   CARD 7 — LOCATION (compact)
+   ═══════════════════════════════════════════════════════ */
+.bento-location {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 6px;
+  padding: 32px 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.bento-location::after {
+  content: '';
+  position: absolute;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  border: 1px dashed rgba(79, 142, 247, 0.12);
+  pointer-events: none;
+  animation: rotate-slow 30s linear infinite;
+}
+
+@keyframes rotate-slow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+.location-pin {
+  font-size: 1.6rem;
+  color: var(--accent-blue);
+  margin-bottom: 6px;
+  animation: location-bounce 3s ease-in-out infinite;
+}
+
+@keyframes location-bounce {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-6px); }
+}
+
+.location-city {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.location-state {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+}
+
+
+/* ═══════════════════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════════════════ */
+@media (max-width: 900px) {
+  .bento-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .bento-bio {
+    grid-column: span 2;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+
+  .bio-text {
+    align-items: center;
+  }
+
+  .bio-desc {
+    text-align: center;
+  }
+
+  .bio-links {
+    justify-content: center;
+  }
+
+  .bento-skills {
+    grid-column: span 2;
+  }
+
+  .bento-education {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 600px) {
+  .about-page {
+    padding-top: 70px;
+    padding-bottom: 60px;
+  }
+
+  .bento-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .bento-bio,
+  .bento-skills,
+  .bento-education {
+    grid-column: span 1;
+  }
+
+  .bento-bio {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+
+  .bio-photo-wrap {
+    width: 160px;
+    height: 160px;
+  }
+
+  .bio-text {
+    align-items: center;
+  }
+
+  .bio-desc {
+    text-align: center;
+  }
+
+  .bio-links {
+    justify-content: center;
+  }
+
+  .bento-card {
+    padding: 22px;
+  }
+
+  .skill-cluster {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .cluster-label {
+    width: fit-content;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+}
