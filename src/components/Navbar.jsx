@@ -1,30 +1,25 @@
-import { useState } from 'react'
-import { NavLink } from 'react-router-dom'
+import { useState } from "react";
+import { NavLink } from "react-router-dom";
 
-// Navbar component — appears on every page
-// useState controls the mobile hamburger menu open/close
 function Navbar() {
-  // isMenuOpen: tracks whether the mobile menu is visible
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  // Toggle the menu open/closed
   function toggleMenu() {
-    setIsMenuOpen(!isMenuOpen)
+    setIsMenuOpen(!isMenuOpen);
   }
 
-  // Close the menu when a link is clicked (for mobile)
   function closeMenu() {
-    setIsMenuOpen(false)
+    setIsMenuOpen(false);
   }
 
   // The nav links data — easy to update
   const navLinks = [
-    { path: '/', label: 'Home' },
-    { path: '/about', label: 'About' },
-    { path: '/skills', label: 'Skills' },
-    { path: '/projects', label: 'Projects' },
-    { path: '/contact', label: 'Contact' },
-  ]
+    { path: "/", label: "Home" },
+    { path: "/about", label: "About" },
+    { path: "/skills", label: "Skills" },
+    { path: "/projects", label: "Projects" },
+    { path: "/contact", label: "Contact" },
+  ];
 
   return (
     <>
@@ -41,8 +36,8 @@ function Navbar() {
               {/* NavLink automatically adds an "active" class when the route matches */}
               <NavLink
                 to={link.path}
-                className={({ isActive }) => isActive ? 'active-link' : ''}
-                end={link.path === '/'}
+                className={({ isActive }) => (isActive ? "active-link" : "")}
+                end={link.path === "/"}
               >
                 {link.label}
               </NavLink>
@@ -50,7 +45,6 @@ function Navbar() {
           ))}
         </ul>
 
-        {/* Hamburger button — only visible on mobile (CSS handles display) */}
         <button
           className="hamburger-btn"
           onClick={toggleMenu}
@@ -63,22 +57,21 @@ function Navbar() {
         </button>
       </nav>
 
-      {/* Mobile Menu — shown/hidden via CSS class based on isMenuOpen */}
-      <div className={`mobile-menu ${isMenuOpen ? 'open' : ''}`}>
+      <div className={`mobile-menu ${isMenuOpen ? "open" : ""}`}>
         {navLinks.map((link) => (
           <NavLink
             key={link.path}
             to={link.path}
-            className={({ isActive }) => isActive ? 'active-link' : ''}
+            className={({ isActive }) => (isActive ? "active-link" : "")}
             onClick={closeMenu}
-            end={link.path === '/'}
+            end={link.path === "/"}
           >
             {link.label}
           </NavLink>
         ))}
       </div>
     </>
-  )
+  );
 }
 
-export default Navbar
+export default Navbar;

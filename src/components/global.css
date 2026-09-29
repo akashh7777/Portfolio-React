@@ -1,9 +1,3 @@
-/* ============================================================
-   GLOBAL.CSS — Design tokens, reset, shared utilities
-   Dark theme with blue/purple accents and glassmorphism
-   ============================================================ */
-
-/* --- CSS Variables (Design Tokens) --- */
 :root {
   /* Colors */
   --bg-primary: #050508;
@@ -15,7 +9,11 @@
   --accent-purple: #8b5cf6;
   --accent-cyan: #22d3ee;
   --gradient-main: linear-gradient(135deg, #4f8ef7, #8b5cf6);
-  --gradient-subtle: linear-gradient(135deg, rgba(79,142,247,0.15), rgba(139,92,246,0.15));
+  --gradient-subtle: linear-gradient(
+    135deg,
+    rgba(79, 142, 247, 0.15),
+    rgba(139, 92, 246, 0.15)
+  );
 
   --text-primary: #f1f5f9;
   --text-secondary: #94a3b8;
@@ -34,15 +32,17 @@
   --border-radius-sm: 8px;
 
   /* Typography */
-  --font-main: 'Inter', sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
+  --font-main: "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
 
   /* Transitions */
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* --- Reset & Base --- */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -60,10 +60,17 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
   background-image:
-    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(79,142,247,0.08) 0%, transparent 60%),
-    linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
-  background-size: 100% 100%, 60px 60px, 60px 60px;
+    radial-gradient(
+      ellipse 80% 50% at 50% -20%,
+      rgba(79, 142, 247, 0.08) 0%,
+      transparent 60%
+    ),
+    linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+  background-size:
+    100% 100%,
+    60px 60px,
+    60px 60px;
 }
 
 /* --- App Layout --- */
@@ -85,7 +92,10 @@ body {
 }
 
 /* --- Typography --- */
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
   font-weight: 700;
   line-height: 1.2;
 }
@@ -216,7 +226,6 @@ h1, h2, h3, h4 {
   margin: 16px auto 0;
 }
 
-/* --- Page Hero Header (for inner pages) --- */
 .page-hero {
   padding: 80px 0 60px;
   text-align: center;
@@ -224,19 +233,20 @@ h1, h2, h3, h4 {
 }
 
 .page-hero::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
   height: 1px;
-  background: linear-gradient(90deg, transparent, var(--border-color), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--border-color),
+    transparent
+  );
 }
-
-/* ============================================================
-   RESPONSIVE — MEDIA QUERIES
-   ============================================================ */
 
 @media (max-width: 900px) {
   :root {

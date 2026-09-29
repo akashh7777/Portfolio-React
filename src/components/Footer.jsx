@@ -1,31 +1,40 @@
-import { Link } from 'react-router-dom'
-import { FaGithub, FaLinkedinIn, FaEnvelope, FaHeart, FaReact, FaArrowUp } from 'react-icons/fa'
+import { Link } from "react-router-dom";
+import {
+  FaGithub,
+  FaLinkedinIn,
+  FaEnvelope,
+  FaHeart,
+  FaReact,
+  FaArrowUp,
+} from "react-icons/fa";
 
-// Footer component — appears on every page
 function Footer() {
-  const currentYear = new Date().getFullYear()
+  const currentYear = new Date().getFullYear();
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' })
-  }
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   return (
     <footer className="footer">
-
       {/* Back to top button */}
-      <button className="back-to-top" onClick={scrollToTop} aria-label="Back to top">
+      <button
+        className="back-to-top"
+        onClick={scrollToTop}
+        aria-label="Back to top"
+      >
         <FaArrowUp />
       </button>
 
       <div className="footer-container">
-
         {/* Top row */}
         <div className="footer-top">
-
           {/* Brand */}
           <div className="footer-brand">
             <span className="footer-logo">Akash H</span>
-            <p className="footer-tagline">Full Stack Developer · AI Enthusiast</p>
+            <p className="footer-tagline">
+              Full Stack Developer · AI Enthusiast
+            </p>
           </div>
 
           {/* Quick navigation */}
@@ -44,10 +53,20 @@ function Footer() {
           <div className="footer-social">
             <span className="footer-nav-label">Connect</span>
             <div className="footer-social-icons">
-              <a href="https://github.com/akashh7777" target="_blank" rel="noreferrer" aria-label="GitHub">
+              <a
+                href="https://github.com/akashh7777"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="GitHub"
+              >
                 <FaGithub />
               </a>
-              <a href="https://www.linkedin.com/in/akash-h-" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+              <a
+                href="https://www.linkedin.com/in/akash-h-"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="LinkedIn"
+              >
                 <FaLinkedinIn />
               </a>
               <a href="mailto:akashh.dev.work@gmail.com" aria-label="Email">
@@ -55,7 +74,6 @@ function Footer() {
               </a>
             </div>
           </div>
-
         </div>
 
         {/* Divider */}
@@ -67,13 +85,13 @@ function Footer() {
             © {currentYear} Akash H. All rights reserved.
           </p>
           <p className="footer-built">
-            Built with <FaHeart className="footer-heart" /> using <FaReact className="footer-react" /> React.js
+            Built with <FaHeart className="footer-heart" /> using{" "}
+            <FaReact className="footer-react" /> React.js
           </p>
         </div>
-
       </div>
     </footer>
-  )
+  );
 }
 
-export default Footer
+export default Footer;

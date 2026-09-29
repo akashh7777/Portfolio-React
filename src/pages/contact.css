@@ -1,7 +1,3 @@
-/* ============================================================
-   CONTACT.CSS — Premium styles for the Contact page
-   ============================================================ */
-
 .contact-page {
   padding-top: 70px;
 }
@@ -15,7 +11,7 @@
   grid-template-columns: 1fr 1.5fr;
   gap: 60px;
   align-items: start;
-  margin-top: -20px
+  margin-top: -20px;
 }
 
 /* ── Left: Info panel ── */
@@ -84,10 +80,14 @@
 
 /* Subtle gradient sweep on hover */
 .contact-link-item::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(79, 142, 247, 0.04) 0%, transparent 60%);
+  background: linear-gradient(
+    135deg,
+    rgba(79, 142, 247, 0.04) 0%,
+    transparent 60%
+  );
   opacity: 0;
   transition: opacity 0.4s ease;
   pointer-events: none;
@@ -103,7 +103,6 @@
   transform: translateX(4px);
 }
 
-/* Icon box for social links */
 .link-icon-box {
   width: 42px;
   height: 42px;
@@ -163,7 +162,7 @@
 
 /* Decorative top gradient bar */
 .contact-form::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -195,7 +194,7 @@
 
 .form-group input,
 .form-group textarea {
-  background: rgba(255,255,255,0.04);
+  background: rgba(255, 255, 255, 0.04);
   border: 1.5px solid var(--border-color);
   border-radius: var(--border-radius-sm);
   padding: 14px 16px;
@@ -248,9 +247,8 @@
   overflow: hidden;
 }
 
-/* Gradient top bar on success card too */
 .form-success::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -264,7 +262,11 @@
   width: 72px;
   height: 72px;
   border-radius: 50%;
-  background: linear-gradient(135deg, rgba(34, 197, 94, 0.15), rgba(74, 222, 128, 0.1));
+  background: linear-gradient(
+    135deg,
+    rgba(34, 197, 94, 0.15),
+    rgba(74, 222, 128, 0.1)
+  );
   border: 2px solid rgba(34, 197, 94, 0.3);
   display: flex;
   align-items: center;
@@ -279,8 +281,15 @@
 }
 
 @keyframes success-pulse {
-  0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.3); }
-  50% { transform: scale(1.05); box-shadow: 0 0 20px rgba(34, 197, 94, 0.2); }
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.3);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(34, 197, 94, 0.2);
+  }
 }
 
 .form-success h3 {

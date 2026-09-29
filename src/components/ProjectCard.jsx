@@ -1,24 +1,21 @@
-import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa'
+import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 
-// ProjectCard — displays a single project with icon, details, tags, tech stack and links
-// Props:
-//   icon         — React element (SVG icon from react-icons)
-//   iconGradient — CSS gradient string for the icon box background
-//   number       — project number string (e.g. '01')
-//   category     — category label (e.g. 'Full Stack AI Application · 2025')
-//   title        — project title
-//   tagline      — short tagline
-//   summary      — project summary paragraph
-//   featureTags  — array of { icon, label } objects for feature pills
-//   techStack    — array of tech name strings
-//   note         — optional note string
-//   githubUrl    — optional GitHub link
-//   liveUrl      — optional live demo link
-
-function ProjectCard({ icon, iconGradient, number, category, title, tagline, summary, featureTags, techStack, note, githubUrl, liveUrl }) {
+function ProjectCard({
+  icon,
+  iconGradient,
+  number,
+  category,
+  title,
+  tagline,
+  summary,
+  featureTags,
+  techStack,
+  note,
+  githubUrl,
+  liveUrl,
+}) {
   return (
     <div className="project-card-new glass-card">
-
       {/* ── Project number badge ── */}
       <span className="pcn-number">{number}</span>
 
@@ -56,14 +53,17 @@ function ProjectCard({ icon, iconGradient, number, category, title, tagline, sum
       {/* ── Tech stack ── */}
       <div className="pcn-tech-stack">
         {techStack.map((tech) => (
-          <span key={tech} className="pcn-tech-pill">{tech}</span>
+          <span key={tech} className="pcn-tech-pill">
+            {tech}
+          </span>
         ))}
       </div>
 
       {/* ── Optional note ── */}
       {note && (
         <div className="pcn-note">
-          <strong>Note: </strong>{note}
+          <strong>Note: </strong>
+          {note}
         </div>
       )}
 
@@ -76,7 +76,7 @@ function ProjectCard({ icon, iconGradient, number, category, title, tagline, sum
               target="_blank"
               rel="noreferrer"
               className="pcn-github-link"
-              id={`github-link-${title.toLowerCase().replace(/\s+/g, '-')}`}
+              id={`github-link-${title.toLowerCase().replace(/\s+/g, "-")}`}
             >
               <FaGithub /> GitHub <FaExternalLinkAlt size={10} />
             </a>
@@ -87,16 +87,15 @@ function ProjectCard({ icon, iconGradient, number, category, title, tagline, sum
               target="_blank"
               rel="noreferrer"
               className="pcn-live-link"
-              id={`live-link-${title.toLowerCase().replace(/\s+/g, '-')}`}
+              id={`live-link-${title.toLowerCase().replace(/\s+/g, "-")}`}
             >
               <FaExternalLinkAlt size={12} /> Live Demo
             </a>
           )}
         </div>
       )}
-
     </div>
-  )
+  );
 }
 
-export default ProjectCard
+export default ProjectCard;
