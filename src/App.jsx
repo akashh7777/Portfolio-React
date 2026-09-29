@@ -1,6 +1,7 @@
 import { Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
+import ScrollToTop from './components/ScrollToTop'
 import Home from './pages/Home'
 import About from './pages/About'
 import Skills from './pages/Skills'
@@ -12,6 +13,9 @@ function App() {
     // BrowserRouter enables React Router navigation throughout the app
     
       <div className="app-wrapper">
+        {/* Scroll to top on route change */}
+        <ScrollToTop />
+
         {/* Navbar appears on every page */}
         <Navbar />
 

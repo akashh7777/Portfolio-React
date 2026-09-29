@@ -1,11 +1,19 @@
 import ProjectCard from '../components/ProjectCard'
 
+// react-icons — realistic icons for project cards
+import {
+  FaRobot, FaComments, FaMicrophone, FaShieldAlt, FaBrain, FaMobileAlt,
+  FaGlobeAmericas, FaSearch, FaBolt, FaGlobe, FaMapMarkedAlt,
+  FaUsers, FaUserPlus, FaEdit, FaTrashAlt, FaSave, FaIdCard,
+  FaRocket, FaPaintBrush, FaMoon, FaLayerGroup, FaStar,
+} from 'react-icons/fa'
+
 // Projects page — two-column card grid matching reference design
 
 const projects = [
   {
     number: '01',
-    icon: '🤖',
+    icon: <FaRobot />,
     iconGradient: 'linear-gradient(135deg, #4f8ef7, #8b5cf6)',
     category: 'Full Stack AI Application · 2025',
     title: 'AI Chatbot Supporting Mental Health',
@@ -15,11 +23,11 @@ const projects = [
       'while helping users understand and track their mood. The project features a personalized dashboard, ' +
       'breathing exercises, music recommendations and voice interaction capabilities.',
     featureTags: [
-      { icon: '💬', label: 'Real-time AI chat' },
-      { icon: '🎙️', label: 'Voice interaction' },
-      { icon: '🔐', label: 'Secure auth' },
-      { icon: '🧠', label: 'LLM fine-tuning' },
-      { icon: '📱', label: 'Responsive UI' },
+      { icon: <FaComments />, label: 'Real-time AI chat' },
+      { icon: <FaMicrophone />, label: 'Voice interaction' },
+      { icon: <FaShieldAlt />, label: 'Secure auth' },
+      { icon: <FaBrain />, label: 'LLM fine-tuning' },
+      { icon: <FaMobileAlt />, label: 'Responsive UI' },
     ],
     techStack: ['Next.js', 'Node.js', 'TypeScript', 'Supabase', 'Ollama LLM', 'JavaScript'],
     note:
@@ -28,7 +36,7 @@ const projects = [
   },
   {
     number: '02',
-    icon: '🌍',
+    icon: <FaGlobeAmericas />,
     iconGradient: 'linear-gradient(135deg, #22d3ee, #06b6d4)',
     category: 'Frontend Web Application · 2024',
     title: 'Country Explorer',
@@ -38,11 +46,11 @@ const projects = [
       'around the world using the REST Countries API. Built with a focus on modern JavaScript async/await ' +
       'patterns, dynamic DOM manipulation and a clean, responsive user interface.',
     featureTags: [
-      { icon: '🔍', label: 'Country search' },
-      { icon: '⚡', label: 'Async / Await' },
-      { icon: '🌐', label: 'REST Countries API' },
-      { icon: '🗺️', label: 'Region filtering' },
-      { icon: '📱', label: 'Responsive UI' },
+      { icon: <FaSearch />, label: 'Country search' },
+      { icon: <FaBolt />, label: 'Async / Await' },
+      { icon: <FaGlobe />, label: 'REST Countries API' },
+      { icon: <FaMapMarkedAlt />, label: 'Region filtering' },
+      { icon: <FaMobileAlt />, label: 'Responsive UI' },
     ],
     techStack: ['HTML', 'CSS', 'JavaScript', 'REST API', 'Async/Await', 'DOM Manipulation'],
     githubUrl: 'https://github.com/akashh7777/Country-Explorer---AsyncAwait',
@@ -51,7 +59,7 @@ const projects = [
   },
   {
     number: '03',
-    icon: '👥',
+    icon: <FaUsers />,
     iconGradient: 'linear-gradient(135deg, #a78bfa, #8b5cf6)',
     category: 'Frontend Web Application · 2024',
     title: 'TeamHub — Staff Directory',
@@ -61,11 +69,11 @@ const projects = [
       'Allows teams to add, view, edit and delete employee records — including name, staff code, email, ' +
       'contact number, department, job role, salary and joining date — all persisted via the browser\'s localStorage API.',
     featureTags: [
-      { icon: '➕', label: 'Add team members' },
-      { icon: '✏️', label: 'Edit profiles' },
-      { icon: '🗑️', label: 'Delete records' },
-      { icon: '💾', label: 'localStorage persist' },
-      { icon: '🪪', label: 'Employee profile cards' },
+      { icon: <FaUserPlus />, label: 'Add team members' },
+      { icon: <FaEdit />, label: 'Edit profiles' },
+      { icon: <FaTrashAlt />, label: 'Delete records' },
+      { icon: <FaSave />, label: 'localStorage persist' },
+      { icon: <FaIdCard />, label: 'Employee profile cards' },
     ],
     techStack: ['HTML', 'CSS', 'JavaScript', 'localStorage API', 'DOM Manipulation'],
     githubUrl: 'https://github.com/akashh7777/Local-Storage---CRUD',
@@ -74,7 +82,7 @@ const projects = [
   },
   {
     number: '04',
-    icon: '⚡',
+    icon: <FaRocket />,
     iconGradient: 'linear-gradient(135deg, #f97316, #eab308)',
     category: 'Frontend · Animated Landing Page · 2024',
     title: 'PowerBite 24',
@@ -84,11 +92,11 @@ const projects = [
       'engineered for 24 hours of sustained energy. Features a dark sci-fi aesthetic with glowing effects, ' +
       'CSS animations, feature cards, customer testimonials, a nutritional stats section and a fully responsive layout — built with pure HTML and CSS.',
     featureTags: [
-      { icon: '🎨', label: 'CSS animations' },
-      { icon: '🌑', label: 'Dark futuristic theme' },
-      { icon: '🃏', label: 'Feature cards' },
-      { icon: '⭐', label: 'Testimonials' },
-      { icon: '📱', label: 'Fully responsive' },
+      { icon: <FaPaintBrush />, label: 'CSS animations' },
+      { icon: <FaMoon />, label: 'Dark futuristic theme' },
+      { icon: <FaLayerGroup />, label: 'Feature cards' },
+      { icon: <FaStar />, label: 'Testimonials' },
+      { icon: <FaMobileAlt />, label: 'Fully responsive' },
     ],
     techStack: ['HTML', 'CSS', 'CSS Animations', 'Glassmorphism', 'Responsive Design'],
     githubUrl: 'https://github.com/akashh7777/PowerBite-24-HTML-CSS-Animation',
@@ -106,7 +114,7 @@ function Projects() {
         <div className="page-hero">
           <h1 className="section-title">Featured Projects</h1>
           <div className="divider"></div>
-          <p className="section-subtitle">
+          <p className="section-subtitle"><br />
             Practical software projects I have built — combining Full Stack Development and AI.
           </p>
         </div>

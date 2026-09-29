@@ -1,15 +1,32 @@
-// ProjectCard — new design matching reference screenshot
-// Props: icon, iconGradient, category, title, tagline, summary, featureTags, techStack, note, githubUrl, liveUrl
+import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa'
 
-function ProjectCard({ icon, iconGradient, category, title, tagline, summary, featureTags, techStack, note, githubUrl, liveUrl }) {
+// ProjectCard — displays a single project with icon, details, tags, tech stack and links
+// Props:
+//   icon         — React element (SVG icon from react-icons)
+//   iconGradient — CSS gradient string for the icon box background
+//   number       — project number string (e.g. '01')
+//   category     — category label (e.g. 'Full Stack AI Application · 2025')
+//   title        — project title
+//   tagline      — short tagline
+//   summary      — project summary paragraph
+//   featureTags  — array of { icon, label } objects for feature pills
+//   techStack    — array of tech name strings
+//   note         — optional note string
+//   githubUrl    — optional GitHub link
+//   liveUrl      — optional live demo link
+
+function ProjectCard({ icon, iconGradient, number, category, title, tagline, summary, featureTags, techStack, note, githubUrl, liveUrl }) {
   return (
     <div className="project-card-new glass-card">
+
+      {/* ── Project number badge ── */}
+      <span className="pcn-number">{number}</span>
 
       {/* ── Header: icon + category + title + tagline ── */}
       <div className="pcn-header">
         {/* Coloured icon box */}
         <div className="pcn-icon" style={{ background: iconGradient }}>
-          <span>{icon}</span>
+          {icon}
         </div>
 
         {/* Meta */}
@@ -23,7 +40,7 @@ function ProjectCard({ icon, iconGradient, category, title, tagline, summary, fe
       {/* ── Summary ── */}
       <p className="pcn-summary">{summary}</p>
 
-      {/* ── Feature tags (with emoji icons) ── */}
+      {/* ── Feature tags (with SVG icons) ── */}
       <div className="pcn-feature-tags">
         {featureTags.map((f) => (
           <span key={f.label} className="pcn-feature-tag">
@@ -61,7 +78,7 @@ function ProjectCard({ icon, iconGradient, category, title, tagline, summary, fe
               className="pcn-github-link"
               id={`github-link-${title.toLowerCase().replace(/\s+/g, '-')}`}
             >
-              <span>🐙</span> GitHub ↗
+              <FaGithub /> GitHub <FaExternalLinkAlt size={10} />
             </a>
           )}
           {liveUrl && (
@@ -72,7 +89,7 @@ function ProjectCard({ icon, iconGradient, category, title, tagline, summary, fe
               className="pcn-live-link"
               id={`live-link-${title.toLowerCase().replace(/\s+/g, '-')}`}
             >
-              <span>🚀</span> Live Demo ↗
+              <FaExternalLinkAlt size={12} /> Live Demo
             </a>
           )}
         </div>

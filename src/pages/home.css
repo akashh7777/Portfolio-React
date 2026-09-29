@@ -287,29 +287,142 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
+  position: relative;
+  overflow: hidden;
 }
 
-.home-project-card .project-number {
-  font-size: 0.75rem;
-  color: var(--accent-purple);
+/* Gradient sweep on hover */
+.home-project-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(79, 142, 247, 0.04) 0%, transparent 50%, rgba(139, 92, 246, 0.04) 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.home-project-card:hover::before {
+  opacity: 1;
+}
+
+.home-project-card:hover {
+  transform: translateY(-6px);
+  box-shadow:
+    var(--glow-blue),
+    0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* ── Card header: icon + meta ── */
+.hp-card-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.hp-icon-box {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 1.3rem;
+  box-shadow: 0 6px 20px rgba(79, 142, 247, 0.3);
+  transition: var(--transition);
+}
+
+.home-project-card:hover .hp-icon-box {
+  transform: scale(1.08) rotate(-3deg);
+  box-shadow: 0 8px 28px rgba(79, 142, 247, 0.45);
+}
+
+.hp-icon-box svg {
+  width: 22px;
+  height: 22px;
+}
+
+.hp-card-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.hp-card-category {
+  font-size: 0.7rem;
+  color: var(--text-muted);
   font-family: var(--font-mono);
-  font-weight: 600;
-  letter-spacing: 1px;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
 }
 
 .home-project-card h3 {
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   color: var(--text-primary);
-  line-height: 1.4;
+  line-height: 1.35;
+  font-weight: 700;
+  transition: var(--transition);
 }
 
+.home-project-card:hover h3 {
+  background: var(--gradient-main);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Tagline ── */
+.hp-card-tagline {
+  font-size: 0.82rem;
+  color: var(--accent-cyan);
+  font-weight: 500;
+  margin-top: -4px;
+}
+
+/* ── Description ── */
 .home-project-card p {
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   color: var(--text-secondary);
-  line-height: 1.6;
+  line-height: 1.65;
   flex: 1;
 }
 
+/* ── Feature highlights ── */
+.hp-card-highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.hp-highlight {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 12px;
+  background: rgba(79, 142, 247, 0.08);
+  border: 1px solid rgba(79, 142, 247, 0.18);
+  border-radius: 50px;
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--accent-blue);
+  font-family: var(--font-mono);
+  transition: var(--transition);
+}
+
+.hp-highlight svg {
+  width: 12px;
+  height: 12px;
+}
+
+.hp-highlight:hover {
+  background: rgba(79, 142, 247, 0.15);
+  border-color: rgba(79, 142, 247, 0.35);
+  transform: translateY(-1px);
+}
+
+/* ── Tags ── */
 .home-project-card .tags {
   display: flex;
   gap: 8px;

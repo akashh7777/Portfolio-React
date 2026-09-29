@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { FaGithub, FaLinkedinIn, FaEnvelope, FaPaperPlane, FaEraser, FaCheckCircle, FaRedoAlt, FaMapMarkerAlt, FaClock } from 'react-icons/fa'
 
 // Contact page
 // useState manages: form field values + form submission state
@@ -40,22 +41,25 @@ function Contact() {
   // Social/contact links — replace these with your real links
   const contactLinks = [
     {
-      icon: '🐙',
+      icon: <FaGithub />,
       label: 'GitHub',
       value: 'github.com/akashh7777',
-      href: 'https://github.com/akashh7777', 
+      href: 'https://github.com/akashh7777',
+      gradient: 'linear-gradient(135deg, #333, #6e5494)',
     },
     {
-      icon: '💼',
+      icon: <FaLinkedinIn />,
       label: 'LinkedIn',
       value: 'linkedin.com/in/akashh',
       href: 'https://www.linkedin.com/in/akash-h-',
+      gradient: 'linear-gradient(135deg, #0077B5, #00a0dc)',
     },
     {
-      icon: '📧',
+      icon: <FaEnvelope />,
       label: 'Email',
       value: 'akashh.dev.work@gmail.com',
-      href: 'mailto:akashh.dev.work@gmail.com', 
+      href: 'mailto:akashh.dev.work@gmail.com',
+      gradient: 'linear-gradient(135deg, #ea4335, #fbbc04)',
     },
   ]
 
@@ -67,7 +71,7 @@ function Contact() {
         <div className="page-hero">
           <h1 className="section-title">Get in Touch</h1>
           <div className="divider"></div>
-          <p className="section-subtitle">
+          <p className="section-subtitle"><br />
             Open to opportunities, collaborations and conversations.
           </p>
         </div>
@@ -86,6 +90,16 @@ function Contact() {
                 reach out.
               </p>
 
+              {/* Quick info badges */}
+              <div className="contact-quick-info">
+                <span className="contact-badge">
+                  <FaMapMarkerAlt /> India
+                </span>
+                <span className="contact-badge">
+                  <FaClock /> Available for work
+                </span>
+              </div>
+
               {/* Social / contact links */}
               <div className="contact-links">
                 {contactLinks.map((link) => (
@@ -103,7 +117,9 @@ function Contact() {
                       }
                     }}
                   >
-                    <span className="link-icon">{link.icon}</span>
+                    <span className="link-icon-box" style={{ background: link.gradient }}>
+                      {link.icon}
+                    </span>
                     <div className="link-info">
                       <span className="link-label">{link.label}</span>
                       <span className="link-value">{link.value}</span>
@@ -117,7 +133,9 @@ function Contact() {
             {isSubmitted ? (
               /* Success state — shown after clicking Send Message */
               <div className="glass-card form-success">
-                <span className="success-icon">✅</span>
+                <div className="success-icon-box">
+                  <FaCheckCircle />
+                </div>
                 <h3>Message Ready to Send!</h3>
                 <p>
                   Thank you for reaching out, <strong>{formData.name}</strong>!
@@ -131,7 +149,7 @@ function Contact() {
                   onClick={handleReset}
                   id="form-reset-btn"
                 >
-                  Send Another Message
+                  <FaRedoAlt /> Send Another Message
                 </button>
               </div>
             ) : (
@@ -141,6 +159,7 @@ function Contact() {
                 onSubmit={handleSubmit}
                 id="contact-form"
               >
+                <h3 className="form-heading">Send a Message</h3>
 
                 {/* Name field */}
                 <div className="form-group">
@@ -190,7 +209,7 @@ function Contact() {
                     className="btn btn-primary"
                     id="form-submit-btn"
                   >
-                    Send Message ✉️
+                    <FaPaperPlane /> Send Message
                   </button>
                   <button
                     type="button"
@@ -198,7 +217,7 @@ function Contact() {
                     onClick={handleReset}
                     id="form-clear-btn"
                   >
-                    Clear
+                    <FaEraser /> Clear
                   </button>
                 </div>
 

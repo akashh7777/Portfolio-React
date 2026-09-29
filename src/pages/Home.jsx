@@ -1,6 +1,10 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import heroImage from '../assets/Hero image.png'
+import {
+  FaRobot, FaBrain, FaMicrophone, FaShieldAlt,
+  FaGlobeAmericas, FaSearch, FaBolt, FaMobileAlt,
+} from 'react-icons/fa'
 
 
 const introMessages = {
@@ -134,13 +138,26 @@ function Home() {
 
             {/* Project 1 card */}
             <div className="glass-card home-project-card">
-              <div className="project-number">01</div>
-              <h3>AI Chatbot Supporting Mental Health</h3>
+              <div className="hp-card-header">
+                <div className="hp-icon-box" style={{ background: 'linear-gradient(135deg, #4f8ef7, #8b5cf6)' }}>
+                  <FaRobot />
+                </div>
+                <div className="hp-card-meta">
+                  <span className="hp-card-category">Full Stack AI · 2025</span>
+                  <h3>AI Chatbot Supporting Mental Health</h3>
+                </div>
+              </div>
+              <p className="hp-card-tagline">Empathetic AI support with mood tracking & voice interaction</p>
               <p>
                 An AI-powered mental health support chatbot with mood tracking,
                 breathing exercises, voice input, music recommendations and
                 a personalized dashboard. Powered by a locally hosted Ollama LLM.
               </p>
+              <div className="hp-card-highlights">
+                <span className="hp-highlight"><FaBrain /> LLM-Powered</span>
+                <span className="hp-highlight"><FaMicrophone /> Voice Input</span>
+                <span className="hp-highlight"><FaShieldAlt /> Secure Auth</span>
+              </div>
               <div className="tags">
                 <span className="tag">React / Next.js</span>
                 <span className="tag">Supabase</span>
@@ -151,18 +168,31 @@ function Home() {
 
             {/* Project 2 card */}
             <div className="glass-card home-project-card">
-              <div className="project-number">02</div>
-              <h3>AI-Powered Personal Health Predictor Dashboard</h3>
+              <div className="hp-card-header">
+                <div className="hp-icon-box" style={{ background: 'linear-gradient(135deg, #22d3ee, #06b6d4)' }}>
+                  <FaGlobeAmericas />
+                </div>
+                <div className="hp-card-meta">
+                  <span className="hp-card-category">Frontend Web Application · 2024</span>
+                  <h3>Country Explorer</h3>
+                </div>
+              </div>
+              <p className="hp-card-tagline">Async/Await REST Countries API Explorer</p>
               <p>
-                An AI-powered dashboard that analyzes user data to predict
-                focus levels and lifestyle-related health risks using
-                Machine Learning models with interactive visual results.
+                An interactive web application that fetches and displays detailed information about countries
+                around the world using the REST Countries API. Built with modern JavaScript async/await
+                patterns, dynamic DOM manipulation and a clean, responsive user interface.
               </p>
+              <div className="hp-card-highlights">
+                <span className="hp-highlight"><FaSearch /> Country Search</span>
+                <span className="hp-highlight"><FaBolt /> Async/Await</span>
+                <span className="hp-highlight"><FaMobileAlt /> Responsive UI</span>
+              </div>
               <div className="tags">
-                <span className="tag">Python</span>
-                <span className="tag">Machine Learning</span>
-                <span className="tag">Random Forest</span>
-                <span className="tag">Dashboard</span>
+                <span className="tag">HTML</span>
+                <span className="tag">CSS</span>
+                <span className="tag">JavaScript</span>
+                <span className="tag">REST API</span>
               </div>
             </div>
 

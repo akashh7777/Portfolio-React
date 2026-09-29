@@ -1,6 +1,6 @@
 // SkillCard — displays a single skill with an icon and name
 // Props:
-//   icon    — emoji icon for the skill
+//   icon    — React element (SVG icon from react-icons)
 //   name    — name of the skill
 function SkillCard({ icon, name }) {
   return (
